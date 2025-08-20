@@ -1,0 +1,12 @@
+# robots.txt for XMPro Documentation
+# This file tells search engines which pages they can and cannot crawl
+
+# Allow all search engines to crawl the documentation
+User-agent: *
+Allow: /
+
+# Sitemap location - uses relative path to work with any version
+Sitemap: /sitemap.xml
+
+# Crawl delay (in seconds) - prevents overloading the server
+# Crawl-delay: 1
