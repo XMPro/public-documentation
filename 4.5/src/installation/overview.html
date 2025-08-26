@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../../">
       
       
-      <meta name="docfx:docurl" content="https://xmpro.visualstudio.com/XMPro%20Development/_git/xmpro-development?path=docs/src/installation/overview.md&amp;version=GBdocs-release-4.5&amp;line=1">
+      <meta name="docfx:docurl" content="https://xmpro.visualstudio.com/XMPro%20Development/_git/xmpro-development?path=docs/src/installation/overview.md&amp;version=GBrelease-4.5.3&amp;line=1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -87,21 +87,37 @@
         <article data-uid="">
 <h1 id="overview">Overview</h1>
 
-<p>XMPro Platform consists of three main components:</p>
+<p>XMPro Platform consists of three main components - App Designer, Data Stream Designer, and Subscription Manager - deployed using a modern container-based architecture (v4.5+) that supports Azure, AWS, and on-premises environments.</p>
+<p>This container-based approach provides:</p>
 <ul>
-<li>App Designer</li>
-<li>Data Stream Designer</li>
-<li>Subscription Manager</li>
+<li><strong>Improved Scalability</strong>: Easy horizontal scaling of components</li>
+<li><strong>Better Resource Utilization</strong>: Optimized container sizing for each component</li>
+<li><strong>Simplified Updates</strong>: Streamlined deployment and update process</li>
+<li><strong>Enhanced Security</strong>: Container isolation and security boundaries</li>
+<li><strong>Cost Optimization</strong>: Pay only for resources you use</li>
 </ul>
-<h2 id="xmpro-45-deployment">XMPro 4.5 Deployment</h2>
-<p>Please contact our team for installation assistance with XMPro 4.5.</p>
-<p>We're currently developing comprehensive documentation for our new container-based deployment architecture. Installation packages and detailed guides for Azure, Windows, and AWS environments will be released in upcoming patches.</p>
-<p>For immediate deployment needs, Stream Host deployment is available for multiple platforms including Windows and Docker. See the <a href="install-stream-host/index.html">Install Stream Host</a> guide for detailed instructions.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>For v4.4 deployments, see the ARM template documentation. The Terraform deployment covers XMPro v4.5 and later, featuring the new separate App Service Plans per product architecture.</p>
+</div>
+<p>The complete process - encompassing preparation, installation, setup, and loading templates - is depicted in the flowchart below.</p>
+<p><img src="../images/installation-overview.png" alt="Fig 1: The installation process overview"></p>
+<h2 id="artifacts">Artifacts</h2>
+<ul>
+<li><a href="mailto:support@xmpro.com?subject=Request-Installers">Request Installers</a></li>
+<li><a href="mailto:support@xmpro.com?subject=Request-Tiers-1-to-4">Request Tiers 1 - 4</a></li>
+<li><a href="complete-installation/install-connectors.html">Download and install Tier 5 &amp; 6 Files</a>
+<ul>
+<li>Links for the larger AI &amp; ML Agents are on their individual documentation pages, as indicated <a href="../resources/integrations.html#tier-5">here</a>.</li>
+</ul>
+</li>
+<li><a href="https://github.com/XMPro/Blueprints-Accelerators-Patterns">Download Blueprints, Accelerators &amp; Patterns</a></li>
+</ul>
 
 
   <div class="last-modified">
     <hr />
-    <p><small><em>Last modified: August 19, 2025</em></small></p>
+    <p><small><em>Last modified: August 26, 2025</em></small></p>
   </div>
 </article>
 
