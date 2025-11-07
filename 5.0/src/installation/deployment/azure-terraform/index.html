@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Deploy XMPro on Azure | XMPro </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Deploy XMPro on Azure | XMPro ">
+      <meta name="description" content="XMPro official documentation - Learn how to use XMPro&#39;s intelligent digital twin suite for real-time operational intelligence and automated decision-making.">
+      
+      <link rel="icon" href="../../../../images/favicon.png">
+      <link rel="stylesheet" href="../../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../../toc.html">
+      <meta name="docfx:tocrel" content="../../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../../">
+      
+      
+      <meta name="docfx:docurl" content="https://xmpro.visualstudio.com/XMPro%20Development/_git/xmpro-development?path=docs/src/installation/deployment/azure-terraform/index.md&amp;version=GBmain&amp;line=1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../../index.html">
+            <img id="logo" class="svg" src="../../../../images/logo-light.png" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="deploy-xmpro-on-azure">Deploy XMPro on Azure</h1>
+
+<p>Get XMPro running on Azure in 20 minutes with these simple steps.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>This guide works on <strong>Windows</strong>, <strong>Mac</strong>, and <strong>Linux</strong>. Windows users should use Command Prompt or PowerShell.</p>
+</div>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>You need:</p>
+<ul>
+<li>An Azure account with a subscription</li>
+<li>A computer with internet access</li>
+</ul>
+<h2 id="quick-deployment">Quick Deployment</h2>
+<h3 id="1-install-required-tools">1. Install Required Tools</h3>
+<p>Install these on your computer:</p>
+<ul>
+<li><strong>Git</strong>: <a href="https://git-scm.com/downloads">Download here</a></li>
+<li><strong>Terraform</strong>: <a href="https://developer.hashicorp.com/terraform/install">Download here</a></li>
+<li><strong>Azure CLI</strong>: <a href="https://learn.microsoft.com/en-us/cli/azure/install-azure-cli">Download here</a></li>
+</ul>
+<p>Verify they work:</p>
+<p><strong>Windows (Command Prompt or PowerShell):</strong></p>
+<pre><code class="lang-powershell">git --version
+terraform version
+az version
+</code></pre>
+<p><strong>Mac/Linux:</strong></p>
+<pre><code class="lang-bash">git --version
+terraform version
+az version
+</code></pre>
+<h3 id="2-login-to-azure">2. Login to Azure</h3>
+<p><strong>All platforms:</strong></p>
+<pre><code class="lang-powershell"># Login to your Azure account
+az login
+
+# Set your subscription (if you have multiple)
+az account set --subscription &quot;YOUR-SUBSCRIPTION-NAME-OR-ID&quot;
+</code></pre>
+<div class="TIP">
+<h5>Tip</h5>
+<p>Terraform will automatically use your Azure CLI credentials. If you prefer using environment variables or service principals, see the advanced setup below.</p>
+</div>
+<details>
+<summary><b>Optional: Use ARM environment variables instead</b></summary>
+<p>If you can't use <code>az login</code> (e.g., in CI/CD pipelines), set these environment variables:</p>
+<p><strong>Windows (PowerShell):</strong></p>
+<pre><code class="lang-powershell">$env:ARM_SUBSCRIPTION_ID = &quot;your-subscription-id&quot;
+$env:ARM_TENANT_ID = &quot;your-tenant-id&quot;
+$env:ARM_CLIENT_ID = &quot;your-service-principal-id&quot;
+$env:ARM_CLIENT_SECRET = &quot;your-service-principal-password&quot;
+</code></pre>
+<p><strong>Mac/Linux:</strong></p>
+<pre><code class="lang-bash">export ARM_SUBSCRIPTION_ID=&quot;your-subscription-id&quot;
+export ARM_TENANT_ID=&quot;your-tenant-id&quot;
+export ARM_CLIENT_ID=&quot;your-service-principal-id&quot;
+export ARM_CLIENT_SECRET=&quot;your-service-principal-password&quot;
+</code></pre>
+<p>For more details, see <a href="https://learn.microsoft.com/en-us/azure/developer/terraform/overview">Microsoft's Terraform on Azure documentation</a>.</p>
+</details>
+<h3 id="3-get-the-deployment-files">3. Get the Deployment Files</h3>
+<p><strong>Windows (PowerShell):</strong></p>
+<pre><code class="lang-powershell"># Download the deployment configuration
+git clone https://github.com/XMPro/terraform-xmpro-azure.git
+cd terraform-xmpro-azure\examples\basic
+
+# Create your configuration
+Copy-Item terraform.tfvars.example terraform.tfvars
+</code></pre>
+<p><strong>Windows (Command Prompt):</strong></p>
+<pre><code class="lang-cmd"># Download the deployment configuration
+git clone https://github.com/XMPro/terraform-xmpro-azure.git
+cd terraform-xmpro-azure\examples\basic
+
+# Create your configuration
+copy terraform.tfvars.example terraform.tfvars
+</code></pre>
+<p><strong>Mac/Linux:</strong></p>
+<pre><code class="lang-bash"># Download the deployment configuration
+git clone https://github.com/XMPro/terraform-xmpro-azure.git
+cd terraform-xmpro-azure/examples/basic
+
+# Create your configuration
+cp terraform.tfvars.example terraform.tfvars
+</code></pre>
+<p>Edit <code>terraform.tfvars</code> with any text editor (Notepad, VS Code, vim, etc.).
+Only modify the QUICK START section at the top:</p>
+<pre><code class="lang-hcl"># Core platform settings
+location = &quot;eastus&quot;                           # Azure region (see list below)
+company_name = &quot;YourCompany&quot;                  # Your company name (must be unique)
+
+# Database credentials - IMPORTANT: Don't change these after deployment!
+db_admin_username = &quot;xmadmin&quot;                 # Database admin username
+db_admin_password = &quot;StrongPassword123!&quot;      # Database admin password
+
+# Application passwords
+site_admin_password = &quot;StrongPassword123!&quot;      # Super admin password
+company_admin_password = &quot;StrongPassword123!&quot;   # Company admin password
+
+# Company administrator details
+company_admin_email_address = &quot;admin@yourcompany.com&quot;  # Your email address
+company_admin_first_name = &quot;John&quot;             # Your first name
+company_admin_last_name = &quot;Doe&quot;               # Your last name
+
+# Evaluation mode - Set to true for testing/demo (includes licenses)
+is_evaluation_mode = true
+</code></pre>
+<div class="TIP">
+<h5>Tip</h5>
+<p><strong>Common Azure regions</strong>: <code>eastus</code>, <code>westus2</code>, <code>centralus</code>, <code>westeurope</code>, <code>northeurope</code>, <code>southeastasia</code>, <code>australiaeast</code></p>
+<p>For the complete list, run <code>az account list-locations -o table</code> or see <a href="https://azure.microsoft.com/en-us/explore/global-infrastructure/geographies/">Azure Regions</a></p>
+</div>
+<h3 id="4-deploy-xmpro">4. Deploy XMPro</h3>
+<p><strong>All platforms:</strong></p>
+<pre><code class="lang-powershell">terraform init    # Prepare Terraform
+terraform apply   # Deploy to Azure (type 'yes' when asked)
+</code></pre>
+<h3 id="5-access-xmpro">5. Access XMPro</h3>
+<p>After deployment completes:</p>
+<p><strong>All platforms:</strong></p>
+<pre><code class="lang-powershell">terraform output  # Shows your URLs
+</code></pre>
+<p>Login to Subscription Manager with either account:</p>
+<table>
+<thead>
+<tr>
+<th>Account Type</th>
+<th>Username</th>
+<th>Password</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Super Admin</strong></td>
+<td><code>admin@xmpro.onxmpro.com</code></td>
+<td>Your <code>site_admin_password</code></td>
+<td>Full system access, license management</td>
+</tr>
+<tr>
+<td><strong>Company Admin</strong></td>
+<td><code>firstname.lastname@yourcompany.onxmpro.com</code></td>
+<td>Your <code>company_admin_password</code></td>
+<td>Company management, normal operations</td>
+</tr>
+</tbody>
+</table>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Replace <code>firstname.lastname</code> and <code>yourcompany</code> with the values you set in terraform.tfvars.</p>
+</div>
+<h2 id="thats-it">That's It!</h2>
+<p>XMPro is now running on Azure with this architecture:</p>
+<p><img src="../../../images/azure-terraform-architecture-07-30-2025.png" alt="Azure Terraform Architecture"></p>
+<p>Your deployment includes:</p>
+<ul>
+<li>✅ All XMPro applications (SM, AD, DS, Stream Host)</li>
+<li>✅ SQL databases for each component</li>
+<li>✅ Key Vault for secret management</li>
+<li>✅ Application Insights monitoring</li>
+<li>✅ Storage accounts for files</li>
+<li>✅ SSL certificates automatically configured</li>
+</ul>
+<h2 id="whats-next">What's Next?</h2>
+<ol>
+<li><strong><a href="../../complete-installation/set-up-a-tenant-company.html">Set up your company</a></strong> - Create and configure your first tenant</li>
+<li><strong><a href="../../complete-installation/install-connectors.html">Upload agents and connectors</a></strong> - Enable data integration</li>
+<li><strong><a href="../../complete-installation/install-stream-host/index.html">Add more Stream Hosts</a></strong> (optional) - Scale your data processing</li>
+</ol>
+<h2 id="need-help">Need Help?</h2>
+<h3 id="common-issues">Common Issues</h3>
+<p><strong>&quot;terraform: command not found&quot;</strong>
+→ You haven't installed Terraform yet. Go back to step 1.</p>
+<p><strong>&quot;Please ensure you have logged in&quot;</strong>
+→ Run <code>az login</code> again</p>
+<p><strong>&quot;Resource already exists&quot;</strong>
+→ Add <code>prefix = &quot;unique123&quot;</code> to your terraform.tfvars</p>
+<p><strong>Takes longer than 20 minutes?</strong>
+→ First deployment can take up to 30 minutes. Check Azure Portal to see progress.</p>
+<h3 id="more-resources">More Resources</h3>
+<ul>
+<li><a href="troubleshooting.html">Troubleshooting Guide</a> - Fix common problems</li>
+<li><a href="advanced-configuration.html">Advanced Configuration</a> - Production settings</li>
+<li><a href="https://github.com/XMPro/terraform-xmpro-azure">Complete Documentation</a> - All options</li>
+</ul>
+<h2 id="cleanup">Cleanup</h2>
+<p>To remove everything and stop Azure charges:</p>
+<p><strong>All platforms:</strong></p>
+<pre><code class="lang-powershell">terraform destroy
+</code></pre>
+<hr>
+<div class="NOTE">
+<h5>Note</h5>
+<p>This guide uses the <code>examples/basic</code> configuration which is perfect for getting started. For production deployments with custom domains, SMTP, and other advanced features, see the <a href="https://github.com/XMPro/terraform-xmpro-azure">GitHub documentation</a>.</p>
+</div>
+
+
+  <div class="last-modified">
+    <hr />
+    <p><small><em>Last modified: November 07, 2025</em></small></p>
+  </div>
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright © 2025 XMPro. All rights reserved.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
