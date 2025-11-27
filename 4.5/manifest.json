@@ -13607,6 +13607,36 @@
     },
     {
       "type": "Resource",
+      "source_relative_path": "src/images/how-tos/data-streams/recurrence-config.PNG",
+      "output": {
+        "resource": {
+          "relative_path": "src/images/how-tos/data-streams/recurrence-config.PNG"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "src/images/how-tos/data-streams/recurrence-new-stream.PNG",
+      "output": {
+        "resource": {
+          "relative_path": "src/images/how-tos/data-streams/recurrence-new-stream.PNG"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "src/images/how-tos/data-streams/recurrence-setup-existing.PNG",
+      "output": {
+        "resource": {
+          "relative_path": "src/images/how-tos/data-streams/recurrence-setup-existing.PNG"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
       "source_relative_path": "src/images/iis-manager.png",
       "output": {
         "resource": {
@@ -18227,56 +18257,6 @@
     },
     {
       "type": "Resource",
-      "source_relative_path": "src/images/installation-agents-and-connectors.png",
-      "output": {
-        "resource": {
-          "relative_path": "src/images/installation-agents-and-connectors.png"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Resource",
-      "source_relative_path": "src/images/installation-complete-installation.png",
-      "output": {
-        "resource": {
-          "relative_path": "src/images/installation-complete-installation.png"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Resource",
-      "source_relative_path": "src/images/installation-install-xmpro.png",
-      "output": {
-        "resource": {
-          "relative_path": "src/images/installation-install-xmpro.png"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Resource",
-      "source_relative_path": "src/images/installation-overview.png",
-      "output": {
-        "resource": {
-          "relative_path": "src/images/installation-overview.png"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Resource",
-      "source_relative_path": "src/images/installation-preparation.png",
-      "output": {
-        "resource": {
-          "relative_path": "src/images/installation-preparation.png"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Resource",
       "source_relative_path": "src/images/installation/windows-server-2022-1.png",
       "output": {
         "resource": {
@@ -20291,86 +20271,6 @@
       "output": {
         "resource": {
           "relative_path": "src/images/recommendations-manage-rules-view-timeline-3.png"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Resource",
-      "source_relative_path": "src/images/recurrent-1.png",
-      "output": {
-        "resource": {
-          "relative_path": "src/images/recurrent-1.png"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Resource",
-      "source_relative_path": "src/images/recurrent-2.png",
-      "output": {
-        "resource": {
-          "relative_path": "src/images/recurrent-2.png"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Resource",
-      "source_relative_path": "src/images/recurrent-3.png",
-      "output": {
-        "resource": {
-          "relative_path": "src/images/recurrent-3.png"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Resource",
-      "source_relative_path": "src/images/recurrent-4.png",
-      "output": {
-        "resource": {
-          "relative_path": "src/images/recurrent-4.png"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Resource",
-      "source_relative_path": "src/images/recurrent-5.png",
-      "output": {
-        "resource": {
-          "relative_path": "src/images/recurrent-5.png"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Resource",
-      "source_relative_path": "src/images/recurrent-6.png",
-      "output": {
-        "resource": {
-          "relative_path": "src/images/recurrent-6.png"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Resource",
-      "source_relative_path": "src/images/recurrent-7.png",
-      "output": {
-        "resource": {
-          "relative_path": "src/images/recurrent-7.png"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Resource",
-      "source_relative_path": "src/images/recurrent-8.png",
-      "output": {
-        "resource": {
-          "relative_path": "src/images/recurrent-8.png"
         }
       },
       "version": ""
@@ -25857,10 +25757,30 @@
     },
     {
       "type": "Resource",
+      "source_relative_path": "src/images/xmpro-multi-server-deployment-architecture.jpg",
+      "output": {
+        "resource": {
+          "relative_path": "src/images/xmpro-multi-server-deployment-architecture.jpg"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
       "source_relative_path": "src/images/xmpro-package-manager-win-store.png",
       "output": {
         "resource": {
           "relative_path": "src/images/xmpro-package-manager-win-store.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "src/images/xmpro-single-server-deployment-architecture.jpg",
+      "output": {
+        "resource": {
+          "relative_path": "src/images/xmpro-single-server-deployment-architecture.jpg"
         }
       },
       "version": ""
@@ -26027,10 +25947,40 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "src/installation/install.md",
+      "source_relative_path": "src/installation/deployment/windows-server-2022/airgapped-deployment.md",
       "output": {
         ".html": {
-          "relative_path": "src/installation/install.html"
+          "relative_path": "src/installation/deployment/windows-server-2022/airgapped-deployment.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "src/installation/deployment/windows-server-2022/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "src/installation/deployment/windows-server-2022/index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "src/installation/deployment/windows-server-2022/multi-server-deployment.md",
+      "output": {
+        ".html": {
+          "relative_path": "src/installation/deployment/windows-server-2022/multi-server-deployment.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "src/installation/deployment/windows-server-2022/troubleshooting.md",
+      "output": {
+        ".html": {
+          "relative_path": "src/installation/deployment/windows-server-2022/troubleshooting.html"
         }
       },
       "version": ""
