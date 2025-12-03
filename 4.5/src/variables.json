@@ -3,6 +3,6 @@
   "INSTALLER_SCRIPT": "install-xmpro-application.ps1",
   "VERSION": "4.5.4",
   "ACR_URL": "xmpro.azurecr.io",
-  "TERRAFORM_MODULE_URL": "github.com/XMPro/terraform-xmpro-azure",
+  "TERRAFORM_MODULE_URL": "https://github.com/XMPro/terraform-xmpro-azure",
   "DOWNLOAD_URL": "https://download.xmpro.com"
 }
