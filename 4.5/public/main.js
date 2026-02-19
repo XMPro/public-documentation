@@ -149,7 +149,10 @@ export default {
         const pathname = window.location.pathname;
 
         // Use regex to match versioned paths like /public-docs-v4.4/, /public-docs-v4.5/, etc.
-        const versionedPathMatch = pathname.match(/^\/public-docs-v\d+\.\d+/);
+        // const versionedPathMatch = pathname.match(/^\/public-docs-v\d+\.\d+/);
+
+        // fixes older regex to match new pathnames with semver like documentation.xmpro.com/x.y.z/src, etc.,
+        const versionedPathMatch = pathname.match(/\/\d+\.\d+\//);
 
         if (versionedPathMatch) {
           // Extract the matched base path (e.g., /public-docs-v4.4)
@@ -164,7 +167,7 @@ export default {
         // For local development or root deployment, basePath remains empty
 
         // Open the image in the custom viewer
-        const viewerUrl = basePath + '/src/assets/images/image-viewer.html?image=' + encodeURIComponent(imgSrc);
+        const viewerUrl = basePath + 'src/assets/images/image-viewer.html?image=' + encodeURIComponent(imgSrc);
         window.open(viewerUrl, '_blank');
       }
     });
