@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>2. Deploy XMPro | XMPro </title>
+      <title>Deploy XMPro | XMPro </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="2. Deploy XMPro | XMPro ">
+      <meta name="title" content="Deploy XMPro | XMPro ">
       <meta name="description" content="XMPro official documentation - Learn how to use XMPro&#39;s intelligent digital twin suite for real-time operational intelligence and automated decision-making.">
       
       <link rel="icon" href="../../../images/favicon.png">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../../../">
       
       
-      <meta name="docfx:docurl" content="https://xmpro.visualstudio.com/XMPro%20Development/_git/xmpro-development?path=docs/src/installation/deployment/index.md&amp;version=GBmain&amp;line=1">
+      <meta name="docfx:docurl" content="https://xmpro.visualstudio.com/XMPro%20Development/_git/xmpro-development?path=docs/src/installation/deployment/index.md&amp;version=GBrelease-5.0&amp;line=1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -85,55 +85,29 @@
         </div>
 
         <article data-uid="">
-<h1 id="2-deploy-xmpro">2. Deploy XMPro</h1>
+<h1 id="deploy-xmpro">Deploy XMPro</h1>
 
-<p><img src="../../images/installation-install-xmpro.png" alt="Deploy XMPro"></p>
-<p>XMPro Platform can be installed using a range of Infrastructure, please choose the option below that best suits your requirements:</p>
-<h2 id="container-based-deployments">Container-Based Deployments</h2>
-<h3 id="azure-terraform-deployment"><a href="azure-terraform/index.html">Azure Terraform Deployment</a></h3>
-<div class="TIP">
-<h5>Tip</h5>
-<p><strong>Full Platform</strong>: Complete XMPro deployment with all components (includes Stream Host by default)</p>
-</div>
-<div class="NOTE">
-<h5>Note</h5>
-<p>The following features are not yet available in Azure Terraform Deployment:</p>
-<ul>
-<li>SMTP OAuth configuration</li>
-<li>Redis/Autoscale setup</li>
-<li>SSO Azure Entra ID integration</li>
-<li>SSO ADFS integration</li>
-<li>Custom environment variables</li>
-<li>Custom health checks configuration</li>
-</ul>
-</div>
-<h3 id="aws-terraform-deployment">AWS Terraform Deployment</h3>
-<div class="NOTE">
-<h5>Note</h5>
-<p>AWS container deployment is coming soon for XMPro v4.5+.</p>
-</div>
-<h3 id="windows-server-2022-container-deployment">Windows Server 2022 Container Deployment</h3>
-<div class="NOTE">
-<h5>Note</h5>
-<p>Windows Server 2022 container deployment is coming soon for XMPro v4.5+.</p>
-</div>
-<h2 id="legacy-installers">Legacy Installers</h2>
-<p>Traditional installation methods for XMPro v4.4 and earlier versions.</p>
-<h3 id="azure-arm-template-deployment"><a href="https://documentation.xmpro.com/4.4/src/installation/deployment/azure.html">Azure ARM Template Deployment</a></h3>
-<p>Traditional ARM template deployment approach for existing v4.4 installations.</p>
-<h3 id="aws-deployment"><a href="https://documentation.xmpro.com/4.4/src/installation/deployment/aws.html">AWS Deployment</a></h3>
-<p>Deploy XMPro on Amazon Web Services using Kubernetes and Helm charts.</p>
-<h3 id="windows-server-2022-deployment"><a href="https://documentation.xmpro.com/4.4/src/installation/deployment/windows-server-2022/index.html">Windows Server 2022 Deployment</a></h3>
-<p>On-premises deployment for Windows Server environments.</p>
+<p>XMPro 5.0 is deployed on <strong>Kubernetes</strong>. Choose the platform that best suits your environment:</p>
+<h2 id="kubernetes-deployments">Kubernetes Deployments</h2>
+<p>Migrating from an existing v4.x Azure App Service or legacy AWS deployment? Each Kubernetes guide includes a migration path.</p>
+<h3 id="aws-kubernetes-eks-deployment"><a href="aws-kubernetes/index.html">AWS Kubernetes (EKS) Deployment</a></h3>
+<p>Full XMPro platform on Amazon Elastic Kubernetes Service with RDS SQL Server, optional ElastiCache Redis, IRSA, and Envoy Gateway. Layered Terraform (cluster, per-site infrastructure and per-site application, plus optional Stream Host and AI layers) with Let's Encrypt TLS.</p>
+<h3 id="azure-kubernetes-aks-deployment"><a href="azure-kubernetes/index.html">Azure Kubernetes (AKS) Deployment</a></h3>
+<p>Full XMPro platform on Azure Kubernetes Service with Azure SQL, Key Vault, Workload Identity, and Envoy Gateway. Layered Terraform (cluster, per-site infrastructure and per-site application, plus optional Stream Host and AI layers) with Let's Encrypt TLS.</p>
+<h2 id="other-deployment-options">Other Deployment Options</h2>
+<h3 id="azure-terraform-app-service-deployment"><a href="azure-terraform/index.html">Azure Terraform (App Service) Deployment</a></h3>
+<p>The Azure Terraform module deploys XMPro <strong>v4.6 only</strong> to Azure App Service; it does not deploy 5.0. Existing App Service deployments keep running until you migrate; to move to Kubernetes, see <a href="azure-kubernetes/upgrade-from-app-service.html">Migrate from App Service</a>.</p>
+<h3 id="windows-server-2022-deployment">Windows Server 2022 Deployment</h3>
+<p>A Windows Server 2022 deployment option is planned for <strong>5.1.0</strong>. The Windows Server installer is not available in v5.0.x: the <a href="windows-server-2022/index.html">Windows Server 2022 guide</a> describes the v4.x installer and applies to existing v4.x deployments only. Stream Host remains supported on Windows.</p>
 <hr>
 <h2 id="next-steps">Next Steps</h2>
 <p>After completing your infrastructure deployment, proceed to:</p>
-<p><strong><a href="../complete-installation/index.html">3. Post-deployment</a></strong> - Complete the setup and configuration of your XMPro environment.</p>
+<p><strong><a href="../complete-installation/index.html">Post-deployment</a></strong> - Complete the setup and configuration of your XMPro environment.</p>
 
 
   <div class="last-modified">
     <hr />
-    <p><small><em>Last modified: November 07, 2025</em></small></p>
+    <p><small><em>Last modified: September 23, 2026</em></small></p>
   </div>
 </article>
 

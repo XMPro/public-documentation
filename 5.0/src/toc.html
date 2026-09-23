@@ -59,10 +59,17 @@
                               <a href="resources/icon-library.html" name="" title="Icon Library">Icon Library</a>
                           </li>
                           <li>
-                              <a href="javascript:window.open(&#39;https://xmpro.gitbook.io/integrations/&#39;,&#39;_blank&#39;)" name="" title="Integrations">Integrations</a>
+                              <a href="resources/integrations.md" name="" title="Integrations">Integrations</a>
                           </li>
                           <li>
+                              <span class="expand-stub"></span>
                               <a href="resources/platform-security.html" name="" title="Platform Security">Platform Security</a>
+
+                              <ul class="nav level3">
+                                    <li>
+                                        <a href="resources/container-scan-5-0-0.html" name="" title="Container Scan 5.0.0">Container Scan 5.0.0</a>
+                                    </li>
+                              </ul>
                           </li>
                           <li>
                               <span class="expand-stub"></span>
@@ -74,6 +81,31 @@
                                     </li>
                                     <li>
                                         <a href="resources/practice-notes/unified-recommendation-alert-management.html" name="" title="Unified Recommendation Alert Management">Unified Recommendation Alert Management</a>
+                                    </li>
+                              </ul>
+                          </li>
+                          <li>
+                              <a href="resources/sizing-guideline.md" name="" title="Sizing Guideline">Sizing Guideline</a>
+                          </li>
+                          <li>
+                              <span class="expand-stub"></span>
+                              <a href="resources/whats-new/whats-new-in-4.4.md" name="" title="What&#39;s New in 4.4">What&#39;s New in 4.4</a>
+
+                              <ul class="nav level3">
+                                    <li>
+                                        <a href="resources/whats-new/whats-new-in-4.0.md" name="" title="What&#39;s New in 4.0">What&#39;s New in 4.0</a>
+                                    </li>
+                                    <li>
+                                        <a href="resources/whats-new/whats-new-in-4.1.md" name="" title="What&#39;s New in 4.1">What&#39;s New in 4.1</a>
+                                    </li>
+                                    <li>
+                                        <a href="resources/whats-new/whats-new-in-4.1.13.md" name="" title="What&#39;s New in 4.1.13">What&#39;s New in 4.1.13</a>
+                                    </li>
+                                    <li>
+                                        <a href="resources/whats-new/whats-new-in-4.2.md" name="" title="What&#39;s New in 4.2">What&#39;s New in 4.2</a>
+                                    </li>
+                                    <li>
+                                        <a href="resources/whats-new/whats-new-in-4.3.md" name="" title="What&#39;s New in 4.3">What&#39;s New in 4.3</a>
                                     </li>
                               </ul>
                           </li>
@@ -228,14 +260,7 @@
                               <a href="concepts/version.html" name="" title="Version">Version</a>
                           </li>
                           <li>
-                              <span class="expand-stub"></span>
                               <a href="concepts/xmpro-ai/index.html" name="" title="XMPro AI">XMPro AI</a>
-
-                              <ul class="nav level3">
-                                    <li>
-                                        <a href="concepts/xmpro-ai/xmpro-notebook.html" name="" title="XMPro Notebook">XMPro Notebook</a>
-                                    </li>
-                              </ul>
                           </li>
                     </ul>
                 </li>
@@ -714,9 +739,6 @@
 
                               <ul class="nav level3">
                                     <li>
-                                        <a href="blocks-toolbox/visualizations/autodesk-forge.html" name="" title="Autodesk Forge">Autodesk Forge</a>
-                                    </li>
-                                    <li>
                                         <a href="blocks-toolbox/visualizations/azure-digital-twin-hierarchy.html" name="" title="Azure Digital Twin Hierarchy">Azure Digital Twin Hierarchy</a>
                                     </li>
                                     <li>
@@ -858,30 +880,78 @@
                 </li>
                 <li>
                     <span class="expand-stub"></span>
-                    <a>Deployment</a>
+                    <a href="installation/overview.html" name="" title="Deployment">Deployment</a>
 
                     <ul class="nav level2">
                           <li>
-                              <a href="installation/overview.html" name="" title="Overview">Overview</a>
-                          </li>
-                          <li>
-                              <a href="installation/install.html" name="" title="1. Preparation">1. Preparation</a>
-                          </li>
-                          <li>
                               <span class="expand-stub"></span>
-                              <a href="installation/deployment/index.html" name="" title="2. Deploy XMPro">2. Deploy XMPro</a>
+                              <a href="installation/deployment/index.html" name="" title="Deploy XMPro">Deploy XMPro</a>
 
                               <ul class="nav level3">
+                                    <li>
+                                        <span class="expand-stub"></span>
+                                        <a href="installation/deployment/aws-kubernetes/index.html" name="" title="AWS Kubernetes (EKS)">AWS Kubernetes (EKS)</a>
+
+                                        <ul class="nav level4">
+                                              <li>
+                                                  <a href="installation/deployment/aws-kubernetes/eks-sizing.html" name="" title="Sizing Guideline">Sizing Guideline</a>
+                                              </li>
+                                              <li>
+                                                  <a href="installation/deployment/aws-kubernetes/upgrade-from-legacy.html" name="" title="Migrate from Legacy AWS Deployment">Migrate from Legacy AWS Deployment</a>
+                                              </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <span class="expand-stub"></span>
+                                        <a href="installation/deployment/azure-kubernetes/index.html" name="" title="Azure Kubernetes (AKS)">Azure Kubernetes (AKS)</a>
+
+                                        <ul class="nav level4">
+                                              <li>
+                                                  <a href="installation/deployment/azure-kubernetes/aks-sizing.html" name="" title="Sizing Guideline">Sizing Guideline</a>
+                                              </li>
+                                              <li>
+                                                  <a href="installation/deployment/azure-kubernetes/upgrade-from-app-service.html" name="" title="Migrate from App Service (XMPro v4.x)">Migrate from App Service (XMPro v4.x)</a>
+                                              </li>
+                                        </ul>
+                                    </li>
                                     <li>
                                         <span class="expand-stub"></span>
                                         <a href="installation/deployment/azure-terraform/index.html" name="" title="Azure Terraform">Azure Terraform</a>
 
                                         <ul class="nav level4">
                                               <li>
+                                                  <a href="installation/deployment/azure-terraform/azure-sizing.html" name="" title="Sizing Guideline">Sizing Guideline</a>
+                                              </li>
+                                              <li>
                                                   <a href="installation/deployment/azure-terraform/troubleshooting.html" name="" title="Troubleshooting">Troubleshooting</a>
                                               </li>
                                               <li>
                                                   <a href="installation/deployment/azure-terraform/advanced-configuration.html" name="" title="Advanced Configuration">Advanced Configuration</a>
+                                              </li>
+                                              <li>
+                                                  <a href="installation/deployment/azure-terraform/upgrade-from-legacy.html" name="" title="Upgrade from Legacy ARM Deployment">Upgrade from Legacy ARM Deployment</a>
+                                              </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <span class="expand-stub"></span>
+                                        <a href="installation/deployment/windows-server-2022/index.html" name="" title="Windows Server 2022 (v4.x)">Windows Server 2022 (v4.x)</a>
+
+                                        <ul class="nav level4">
+                                              <li>
+                                                  <a href="installation/deployment/windows-server-2022/upgrade-from-legacy.html" name="" title="Upgrade from Legacy Windows Installer">Upgrade from Legacy Windows Installer</a>
+                                              </li>
+                                              <li>
+                                                  <a href="installation/deployment/windows-server-2022/windows-sizing.html" name="" title="Sizing Guideline">Sizing Guideline</a>
+                                              </li>
+                                              <li>
+                                                  <a href="installation/deployment/windows-server-2022/troubleshooting.html" name="" title="Troubleshooting">Troubleshooting</a>
+                                              </li>
+                                              <li>
+                                                  <a href="installation/deployment/windows-server-2022/multi-server-deployment.html" name="" title="Multi-Server Deployment">Multi-Server Deployment</a>
+                                              </li>
+                                              <li>
+                                                  <a href="installation/deployment/windows-server-2022/airgapped-deployment.html" name="" title="Airgapped Deployment">Airgapped Deployment</a>
                                               </li>
                                         </ul>
                                     </li>
@@ -889,14 +959,14 @@
                           </li>
                           <li>
                               <span class="expand-stub"></span>
-                              <a href="installation/complete-installation/index.html" name="" title="3. Post-deployment">3. Post-deployment</a>
+                              <a href="installation/complete-installation/index.html" name="" title="Post-deployment">Post-deployment</a>
 
                               <ul class="nav level3">
                                     <li>
-                                        <a href="installation/complete-installation/set-up-a-tenant-company.html" name="" title="Create Base Company">Create Base Company</a>
+                                        <a href="installation/complete-installation/set-up-a-tenant-company.html" name="" title="Setup your First Tenant">Setup your First Tenant</a>
                                     </li>
                                     <li>
-                                        <a href="installation/complete-installation/install-connectors.html" name="" title="Upload Agents &amp; Connectors">Upload Agents &amp; Connectors</a>
+                                        <a href="installation/complete-installation/install-connectors.html" name="" title="Upload Agents and Connectors">Upload Agents and Connectors</a>
                                     </li>
                                     <li>
                                         <span class="expand-stub"></span>
@@ -904,15 +974,18 @@
 
                                         <ul class="nav level4">
                                               <li>
-                                                  <a href="installation/complete-installation/install-stream-host/docker.html" name="" title="Docker">Docker</a>
+                                                  <a href="installation/complete-installation/install-stream-host/azure-terraform.html" name="" title="Azure Terraform">Azure Terraform</a>
                                               </li>
                                               <li>
-                                                  <a href="installation/complete-installation/install-stream-host/azure-terraform.html" name="" title="Azure Terraform">Azure Terraform</a>
+                                                  <a href="installation/complete-installation/install-stream-host/docker.html" name="" title="Docker">Docker</a>
                                               </li>
                                               <li>
                                                   <a href="installation/complete-installation/install-stream-host/windows-x64.html" name="" title="Windows (x64)">Windows (x64)</a>
                                               </li>
                                         </ul>
+                                    </li>
+                                    <li>
+                                        <a href="installation/complete-installation/deploy-stream-connector-infrastructure.html" name="" title="Deploy Stream Connector Infrastructure (Optional)">Deploy Stream Connector Infrastructure (Optional)</a>
                                     </li>
                               </ul>
                           </li>
@@ -924,7 +997,13 @@
 
                     <ul class="nav level2">
                           <li>
+                              <a href="technical-reference/connector-pool-configuration.html" name="" title="Connector Pool Configuration">Connector Pool Configuration</a>
+                          </li>
+                          <li>
                               <a href="technical-reference/mosquitto-mqtt-broker.html" name="" title="Mosquitto MQTT Broker">Mosquitto MQTT Broker</a>
+                          </li>
+                          <li>
+                              <a href="technical-reference/oauth-smtp-configuration.html" name="" title="OAuth SMTP Configuration">OAuth SMTP Configuration</a>
                           </li>
                           <li>
                               <a href="technical-reference/redis-cache-implementation.html" name="" title="Redis Cache Implementation">Redis Cache Implementation</a>
@@ -964,6 +1043,19 @@
                                     </li>
                                     <li>
                                         <a href="technical-reference/xmpro-log-events/ai-log-events.html" name="" title="AI Log Events">AI Log Events</a>
+                                    </li>
+                              </ul>
+                          </li>
+                          <li>
+                              <span class="expand-stub"></span>
+                              <a href="technical-reference/observability/index.html" name="" title="Observability and OpenTelemetry">Observability and OpenTelemetry</a>
+
+                              <ul class="nav level3">
+                                    <li>
+                                        <a href="technical-reference/observability/configure-opentelemetry.html" name="" title="Configure OpenTelemetry">Configure OpenTelemetry</a>
+                                    </li>
+                                    <li>
+                                        <a href="technical-reference/observability/backends.html" name="" title="Exporting to a Backend">Exporting to a Backend</a>
                                     </li>
                               </ul>
                           </li>
