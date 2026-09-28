@@ -149,7 +149,7 @@
 <p><strong>B- and D-class VM SKUs are for test, development, or evaluation only.</strong> The <code>Standard_B2s_v2</code> default, or a <code>Standard_D</code>-series SKU, works for a test or evaluation cluster at lower cost. B-series banks CPU credits when idle and throttles when the credits run out, so do not run a production site on it.</p>
 </div>
 <h3 id="per-product-resource-requests-and-limits">Per-product resource requests and limits</h3>
-<p>The table below lists the CPU and memory each XMPro product container reserves (request) and its memory ceiling (limit), taken from the Helm chart defaults. There are no CPU limits by design. These are the same chart resources regardless of whether you run on AKS or EKS. Subscription Manager (SM), Identity Server (IS), App Designer (AD), and Data Stream Designer (DS) are always deployed. On AKS the default in-cluster Stream Host (SH) is on (<code>enable_default_stream_host = true</code>); further Stream Hosts deployed per Collection through the <code>stream-hosts</code> layer use the same SH resources per instance. The AI product is optional.</p>
+<p>The table below lists the CPU and memory each XMPro product container reserves (request) and its memory ceiling (limit), taken from the Helm chart defaults. There are no CPU limits by design. These are the same chart resources regardless of whether you run on AKS or EKS. Subscription Manager (SM), Identity Server (IS), App Designer (AD), and Data Stream Designer (DS) are always deployed. On AKS the default in-cluster Stream Host (SH) is on (<code>enable_default_stream_host = true</code>); further Stream Hosts are deployed per Collection through the <code>stream-hosts</code> layer, which uses the <code>streamhost</code> chart. Its defaults are higher than the default Stream Host's and include a 500m CPU limit. The AI product is optional.</p>
 <table>
 <thead>
 <tr>
@@ -185,10 +185,16 @@
 <td>4Gi</td>
 </tr>
 <tr>
-<td>Stream Host (SH)</td>
+<td>Stream Host (SH), default</td>
 <td>25m</td>
 <td>256Mi</td>
 <td>512Mi</td>
+</tr>
+<tr>
+<td>Stream Host (SH), layer 4</td>
+<td>100m</td>
+<td>256Mi</td>
+<td>1Gi</td>
 </tr>
 <tr>
 <td>AI</td>
@@ -198,10 +204,10 @@
 </tr>
 </tbody>
 </table>
-<p>The standard product set (SM, IS, AD, DS) requests <strong>500m CPU and 4.5Gi</strong> of memory, with a combined memory limit of <strong>11Gi</strong>. Each Stream Host adds 25m / 256Mi (limit 512Mi); AI adds 25m / 384Mi (limit 768Mi).</p>
+<p>The standard product set (SM, IS, AD, DS) requests <strong>500m CPU and 4.5Gi</strong> of memory, with a combined memory limit of <strong>11Gi</strong>. The default Stream Host adds 25m / 256Mi (limit 512Mi), and each layer 4 Stream Host adds 100m / 256Mi (limits 500m / 1Gi). AI adds 25m / 384Mi (limit 768Mi).</p>
 <div class="NOTE">
 <h5>Note</h5>
-<p><strong>Add the Istio sidecar to every pod.</strong> <code>enable_istio</code> defaults to <code>true</code>, so every product pod and every Job pod gets an <code>istio-proxy</code> sidecar that requests a further <strong>25m CPU and 128Mi</strong> (the cluster layer sets the proxy CPU request to 25m; memory is the Istio default). Istio runs the proxy as a native sidecar, so Kubernetes adds its request to the pod's own rather than absorbing it. For the standard product set that is another 100m / 512Mi, taking the steady-state request to <strong>600m CPU and 5Gi</strong>; each Stream Host adds 50m / 384Mi with its sidecar, and AI 50m / 512Mi. Setting <code>enable_istio = false</code> in the application layer removes this overhead.</p>
+<p><strong>Add the Istio sidecar to every pod.</strong> <code>enable_istio</code> defaults to <code>true</code>, so every product pod and every Job pod gets an <code>istio-proxy</code> sidecar that requests a further <strong>25m CPU and 128Mi</strong> (the cluster layer sets the proxy CPU request to 25m; memory is the Istio default). Istio runs the proxy as a native sidecar, so Kubernetes adds its request to the pod's own rather than absorbing it. For the standard product set that is another 100m / 512Mi, taking the steady-state request to <strong>600m CPU and 5Gi</strong>; the default Stream Host adds 50m / 384Mi with its sidecar, each layer 4 Stream Host 125m / 384Mi, and AI 50m / 512Mi. Setting <code>enable_istio = false</code> in the application layer removes this overhead.</p>
 </div>
 <div class="NOTE">
 <h5>Note</h5>
@@ -359,12 +365,11 @@
 </div>
 <p>For production you have two levers, both in the site infrastructure layer (<code>infra</code>): keep the elastic pool and raise <code>db_elastic_pool_edtu</code> so the shared budget matches your workload, or set <code>db_use_elastic_pool = false</code> and give each database its own tier through <code>db_sku_name</code> when you want a guaranteed, isolated allocation rather than a shared burst budget. Raise <code>db_max_size_gb</code> for production data volumes either way.</p>
 <h2 id="mags-sizing">MAGS Sizing</h2>
-<p>MAGS (Multi-Agent Generative Systems) has its own sizing guidance, covering its database, application and GPU knowledge tiers, in <a href="../windows-server-2022/windows-sizing.html#mags-sizing">MAGS Sizing</a>. The node pool figures on this page do not include it.</p>
+<p>MAGS (Multi-Agent Generative Systems) is sized separately, across its database, application and GPU knowledge tiers. The node pool figures on this page do not include it.</p>
 <h2 id="additional-resources">Additional Resources</h2>
 <ul>
 <li><a href="index.html">Deploy XMPro on Azure Kubernetes (AKS)</a> - the deployment guide</li>
 <li>Module README in the deployment repository - full variable reference</li>
-<li><a href="../azure-terraform/azure-sizing.html">App Service Sizing Guideline</a> - the 4.x Azure App Service deployment model</li>
 <li><a href="https://learn.microsoft.com/en-us/azure/virtual-machines/sizes">Azure VM sizes</a></li>
 <li><a href="https://learn.microsoft.com/en-us/azure/azure-sql/database/service-tiers-dtu">Azure SQL Database DTU-based purchasing model</a></li>
 </ul>
@@ -372,7 +377,7 @@
 
   <div class="last-modified">
     <hr />
-    <p><small><em>Last modified: September 23, 2026</em></small></p>
+    <p><small><em>Last modified: September 28, 2026</em></small></p>
   </div>
 </article>
 

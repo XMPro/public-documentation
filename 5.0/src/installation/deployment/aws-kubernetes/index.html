@@ -273,7 +273,7 @@
                               │
                               ▼  per site, as needed
 ┌────────────────────────────────────────────────────────────────┐
-│  Layer 4 (optional) - Stream Hosts (site-template/stream-hosts)│
+│  Layer 4 (optional) - Stream Hosts (layered/stream-hosts)      │
 │  - One standalone Stream Host Helm release per Collection      │
 └────────────────────────────────────────────────────────────────┘
 
@@ -811,9 +811,8 @@ xmpro-sm-root          [&quot;sm.site1.xmpro.yourco.com&quot;]                  
 <h3 id="10-deploy-stream-hosts">10. Deploy Stream Hosts</h3>
 <p>On EKS the application layer installs <strong>no default in-cluster Stream Host</strong> (<code>enable_default_stream_host</code> defaults to <code>false</code>). Stream Hosts are deployed through the dedicated fourth layer: one Helm release per Collection, each with its own collection id and secret. Create the Collection in DS first (see <a href="../../complete-installation/index.html">Post Deployment Guide</a>), then:</p>
 <p><strong>Mac/Linux:</strong></p>
-<pre><code class="lang-bash"># Stream Hosts live in the site-template tree, not examples/layered
-cd ../../../environments/site-template/stream-hosts
-cp template.tfvars.example terraform.tfvars
+<pre><code class="lang-bash">cd ../stream-hosts
+cp terraform.tfvars.example terraform.tfvars
 </code></pre>
 <pre><code class="lang-hcl">aws_region                = &quot;us-west-2&quot;
 name_suffix               = &quot;site1&quot;
@@ -931,15 +930,14 @@ kubectl annotate externalsecret xmpro-secrets -n &lt;name_suffix&gt; \
 <h2 id="cleanup">Cleanup</h2>
 <p><strong>Tearing down one site (keeping the cluster):</strong></p>
 <pre><code class="lang-powershell"># Reverse order: stream-hosts → app → infra, for that site only
-# Stream Hosts (only if you deployed them) live in the site-template tree:
-(cd environments/site-template/stream-hosts &amp;&amp; terraform destroy)
-cd examples/layered/app   &amp;&amp; terraform destroy
+cd examples/layered/stream-hosts &amp;&amp; terraform destroy   # only if you deployed them
+cd ../app                 &amp;&amp; terraform destroy
 cd ../infra               &amp;&amp; terraform destroy
 </code></pre>
 <p>The cluster and its controllers stay available for the remaining sites.</p>
 <p><strong>Tearing down everything:</strong></p>
-<pre><code class="lang-powershell">(cd environments/site-template/stream-hosts &amp;&amp; terraform destroy)
-cd examples/layered/app   &amp;&amp; terraform destroy
+<pre><code class="lang-powershell">cd examples/layered/stream-hosts &amp;&amp; terraform destroy   # only if you deployed them
+cd ../app                 &amp;&amp; terraform destroy
 cd ../infra               &amp;&amp; terraform destroy
 cd ../infra-ai            &amp;&amp; terraform destroy   # only if you deployed the AI backing services
 cd ../infra-k8s           &amp;&amp; terraform destroy
@@ -965,7 +963,7 @@ cd ../infra-k8s           &amp;&amp; terraform destroy
 
   <div class="last-modified">
     <hr />
-    <p><small><em>Last modified: September 23, 2026</em></small></p>
+    <p><small><em>Last modified: September 28, 2026</em></small></p>
   </div>
 </article>
 

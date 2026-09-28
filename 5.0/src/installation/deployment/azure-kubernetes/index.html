@@ -270,7 +270,7 @@
                               │
                               ▼  per site, as needed
 ┌────────────────────────────────────────────────────────────────┐
-│  Layer 4 (optional) - Stream Hosts (site-template/stream-hosts)│
+│  Layer 4 (optional) - Stream Hosts (layered/stream-hosts)      │
 │  - One standalone Stream Host Helm release per Collection      │
 └────────────────────────────────────────────────────────────────┘
 
@@ -781,12 +781,12 @@ xmpro-sm-root          [&quot;sm.site1.xmpro.yourco.com&quot;]                  
 <h3 id="10-deploy-stream-hosts">10. Deploy Stream Hosts</h3>
 <p>On AKS the application layer installs <strong>one default in-cluster Stream Host</strong> (<code>enable_default_stream_host</code> defaults to <code>true</code>), which is the <code>xmpro-sh</code> pod above. It registers with DS on first start. Further Stream Hosts are deployed through the dedicated fourth layer: one Helm release per Collection, each with its own collection id and secret. Create the Collection in DS first (see <a href="../../complete-installation/index.html">Post Deployment Guide</a>), then:</p>
 <p><strong>Mac/Linux:</strong></p>
-<pre><code class="lang-bash"># Stream Hosts live in the site-template tree, not examples/layered
-cd ../../../environments/site-template/stream-hosts
-cp template.tfvars.example terraform.tfvars
+<pre><code class="lang-bash">cd ../stream-hosts
+cp terraform.tfvars.example terraform.tfvars
 </code></pre>
 <pre><code class="lang-hcl">subscription_id           = &quot;00000000-0000-0000-0000-000000000000&quot;
 cluster_name              = &quot;aks-yourco-dev&quot;                 # layer 1
+aks_resource_group_name   = &quot;rg-aks-yourco-dev&quot;              # layer 1 resource_group_name output
 name_suffix               = &quot;site1&quot;
 resource_group_name       = &quot;rg-aks-yourco-site1&quot;            # layer 2 (site RG)
 key_vault_name            = &quot;kv-yourco-site1&quot;                # layer 2
@@ -794,6 +794,7 @@ namespace                 = &quot;site1&quot;
 cluster_secret_store_name = &quot;azurekv-site1&quot;                  # azurekv-&lt;name_suffix&gt; by default
 image_registry            = &quot;{{ACR_URL}}&quot;
 image_tag                 = &quot;{{VERSION}}&quot;
+image_pull_secrets        = [&quot;xmpro-registry&quot;]               # app layer's image_pull_secret_name output
 ds_server_url             = &quot;https://ds.site1.xmpro.yourco.com/&quot;
 
 stream_hosts = {
@@ -884,22 +885,20 @@ Re-apply. The AI database-migration Job runs the SQL (and, with RAG, the Timesca
 <h3 id="more-resources">More Resources</h3>
 <ul>
 <li><a href="upgrade-from-app-service.html">Migration from App Service</a> - Migrate a v4.x Azure App Service deployment</li>
-<li><a href="../azure-terraform/index.html">Azure App Service deployment</a> - The non-Kubernetes Azure option</li>
 <li>Module README in the deployment repository - Full variable reference</li>
 <li><a href="../../complete-installation/index.html">Post Deployment Guide</a> - First-tenant setup, agents, stream hosts</li>
 </ul>
 <h2 id="cleanup">Cleanup</h2>
 <p><strong>Tearing down one site (keeping the cluster):</strong></p>
 <pre><code class="lang-powershell"># Reverse order: stream-hosts → app → infra, for that site only
-# Stream Hosts (only if you deployed them) live in the site-template tree:
-(cd environments/site-template/stream-hosts &amp;&amp; terraform destroy)
-cd examples/layered/app   &amp;&amp; terraform destroy
+cd examples/layered/stream-hosts &amp;&amp; terraform destroy   # only if you deployed them
+cd ../app                 &amp;&amp; terraform destroy
 cd ../infra               &amp;&amp; terraform destroy
 </code></pre>
 <p>The cluster and its controllers stay available for the remaining sites.</p>
 <p><strong>Tearing down everything:</strong></p>
-<pre><code class="lang-powershell">(cd environments/site-template/stream-hosts &amp;&amp; terraform destroy)
-cd examples/layered/app   &amp;&amp; terraform destroy
+<pre><code class="lang-powershell">cd examples/layered/stream-hosts &amp;&amp; terraform destroy   # only if you deployed them
+cd ../app                 &amp;&amp; terraform destroy
 cd ../infra               &amp;&amp; terraform destroy
 cd ../infra-ai            &amp;&amp; terraform destroy   # only if you deployed the AI backing services
 cd ../infra-k8s           &amp;&amp; terraform destroy
@@ -919,7 +918,7 @@ cd ../infra-k8s           &amp;&amp; terraform destroy
 
   <div class="last-modified">
     <hr />
-    <p><small><em>Last modified: September 23, 2026</em></small></p>
+    <p><small><em>Last modified: September 28, 2026</em></small></p>
   </div>
 </article>
 

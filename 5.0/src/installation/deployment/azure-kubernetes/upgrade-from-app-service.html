@@ -87,7 +87,7 @@
         <article data-uid="">
 <h1 id="migrate-from-azure-app-service-xmpro-v4x-to-aks-xmpro-v50">Migrate from Azure App Service (XMPro v4.x) to AKS (XMPro v5.0)</h1>
 
-<p>If you're currently running XMPro v4.x on Azure App Service (the <a href="../azure-terraform/index.html">Azure Terraform</a> or legacy ARM deployment) and planning to move to v5.0 on AKS, this guide walks through a side-by-side migration: deploy the new AKS environment, copy your databases into it, let the schema migration Jobs upgrade them, reconcile them to the new environment, validate, then cut DNS over.</p>
+<p>If you're currently running XMPro v4.x on Azure App Service (the Azure Terraform or legacy ARM deployment) and planning to move to v5.0 on AKS, this guide walks through a side-by-side migration: deploy the new AKS environment, copy your databases into it, let the schema migration Jobs upgrade them, reconcile them to the new environment, validate, then cut DNS over.</p>
 <p>Both environments live in Azure, so the databases move with a single <code>az sql db copy</code> command, and you can run both environments in the same subscription during the transition.</p>
 <div class="NOTE">
 <h5>Note</h5>
@@ -591,7 +591,7 @@ terraform apply
 
   <div class="last-modified">
     <hr />
-    <p><small><em>Last modified: September 23, 2026</em></small></p>
+    <p><small><em>Last modified: September 28, 2026</em></small></p>
   </div>
 </article>
 

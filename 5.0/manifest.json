@@ -1,4 +1,5 @@
 {
+  "docfx_version": "2.81.0+ba844df625370a6bd7c1ecab0d0ec4d1d9128ac4",
   "sitemap": {
     "baseUrl": "https://xmpro.github.io/public-documentation/",
     "changefreq": "daily",
@@ -14747,16 +14748,6 @@
     },
     {
       "type": "Resource",
-      "source_relative_path": "src/images/image-1391.png",
-      "output": {
-        "resource": {
-          "relative_path": "src/images/image-1391.png"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Resource",
       "source_relative_path": "src/images/image-1394.png",
       "output": {
         "resource": {
@@ -15011,16 +15002,6 @@
       "output": {
         "resource": {
           "relative_path": "src/images/image-1488.png"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Resource",
-      "source_relative_path": "src/images/image-1489.png",
-      "output": {
-        "resource": {
-          "relative_path": "src/images/image-1489.png"
         }
       },
       "version": ""
@@ -15757,16 +15738,6 @@
     },
     {
       "type": "Resource",
-      "source_relative_path": "src/images/image-178.png",
-      "output": {
-        "resource": {
-          "relative_path": "src/images/image-178.png"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Resource",
       "source_relative_path": "src/images/image-1789.png",
       "output": {
         "resource": {
@@ -16111,16 +16082,6 @@
       "output": {
         "resource": {
           "relative_path": "src/images/image-237.png"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Resource",
-      "source_relative_path": "src/images/image-241.png",
-      "output": {
-        "resource": {
-          "relative_path": "src/images/image-241.png"
         }
       },
       "version": ""
@@ -16907,16 +16868,6 @@
     },
     {
       "type": "Resource",
-      "source_relative_path": "src/images/image-552.png",
-      "output": {
-        "resource": {
-          "relative_path": "src/images/image-552.png"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Resource",
       "source_relative_path": "src/images/image-558.png",
       "output": {
         "resource": {
@@ -17207,16 +17158,6 @@
     },
     {
       "type": "Resource",
-      "source_relative_path": "src/images/image-665.png",
-      "output": {
-        "resource": {
-          "relative_path": "src/images/image-665.png"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Resource",
       "source_relative_path": "src/images/image-670.png",
       "output": {
         "resource": {
@@ -17377,16 +17318,6 @@
     },
     {
       "type": "Resource",
-      "source_relative_path": "src/images/image-713.png",
-      "output": {
-        "resource": {
-          "relative_path": "src/images/image-713.png"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Resource",
       "source_relative_path": "src/images/image-715.png",
       "output": {
         "resource": {
@@ -17401,16 +17332,6 @@
       "output": {
         "resource": {
           "relative_path": "src/images/image-722.png"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Resource",
-      "source_relative_path": "src/images/image-726.png",
-      "output": {
-        "resource": {
-          "relative_path": "src/images/image-726.png"
         }
       },
       "version": ""
@@ -25227,16 +25148,6 @@
     },
     {
       "type": "Resource",
-      "source_relative_path": "src/images/stream-host-install-download.png",
-      "output": {
-        "resource": {
-          "relative_path": "src/images/stream-host-install-download.png"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Resource",
       "source_relative_path": "src/images/stream-host-log-level-ok.png",
       "output": {
         "resource": {
@@ -25817,30 +25728,10 @@
     },
     {
       "type": "Resource",
-      "source_relative_path": "src/images/xmpro-multi-server-deployment-architecture.jpg",
-      "output": {
-        "resource": {
-          "relative_path": "src/images/xmpro-multi-server-deployment-architecture.jpg"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Resource",
       "source_relative_path": "src/images/xmpro-package-manager-win-store.png",
       "output": {
         "resource": {
           "relative_path": "src/images/xmpro-package-manager-win-store.png"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Resource",
-      "source_relative_path": "src/images/xmpro-single-server-deployment-architecture.jpg",
-      "output": {
-        "resource": {
-          "relative_path": "src/images/xmpro-single-server-deployment-architecture.jpg"
         }
       },
       "version": ""
@@ -25907,26 +25798,6 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "src/installation/complete-installation/install-stream-host/azure-terraform.md",
-      "output": {
-        ".html": {
-          "relative_path": "src/installation/complete-installation/install-stream-host/azure-terraform.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "src/installation/complete-installation/install-stream-host/docker.md",
-      "output": {
-        ".html": {
-          "relative_path": "src/installation/complete-installation/install-stream-host/docker.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
       "source_relative_path": "src/installation/complete-installation/install-stream-host/index.md",
       "output": {
         ".html": {
@@ -25937,10 +25808,10 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "src/installation/complete-installation/install-stream-host/windows-x64.md",
+      "source_relative_path": "src/installation/complete-installation/install-stream-host/kubernetes.md",
       "output": {
         ".html": {
-          "relative_path": "src/installation/complete-installation/install-stream-host/windows-x64.html"
+          "relative_path": "src/installation/complete-installation/install-stream-host/kubernetes.html"
         }
       },
       "version": ""
@@ -26017,120 +25888,10 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "src/installation/deployment/azure-terraform/advanced-configuration.md",
-      "output": {
-        ".html": {
-          "relative_path": "src/installation/deployment/azure-terraform/advanced-configuration.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "src/installation/deployment/azure-terraform/azure-sizing.md",
-      "output": {
-        ".html": {
-          "relative_path": "src/installation/deployment/azure-terraform/azure-sizing.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "src/installation/deployment/azure-terraform/index.md",
-      "output": {
-        ".html": {
-          "relative_path": "src/installation/deployment/azure-terraform/index.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "src/installation/deployment/azure-terraform/troubleshooting.md",
-      "output": {
-        ".html": {
-          "relative_path": "src/installation/deployment/azure-terraform/troubleshooting.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "src/installation/deployment/azure-terraform/upgrade-from-legacy.md",
-      "output": {
-        ".html": {
-          "relative_path": "src/installation/deployment/azure-terraform/upgrade-from-legacy.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
       "source_relative_path": "src/installation/deployment/index.md",
       "output": {
         ".html": {
           "relative_path": "src/installation/deployment/index.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "src/installation/deployment/windows-server-2022/airgapped-deployment.md",
-      "output": {
-        ".html": {
-          "relative_path": "src/installation/deployment/windows-server-2022/airgapped-deployment.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "src/installation/deployment/windows-server-2022/index.md",
-      "output": {
-        ".html": {
-          "relative_path": "src/installation/deployment/windows-server-2022/index.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "src/installation/deployment/windows-server-2022/multi-server-deployment.md",
-      "output": {
-        ".html": {
-          "relative_path": "src/installation/deployment/windows-server-2022/multi-server-deployment.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "src/installation/deployment/windows-server-2022/troubleshooting.md",
-      "output": {
-        ".html": {
-          "relative_path": "src/installation/deployment/windows-server-2022/troubleshooting.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "src/installation/deployment/windows-server-2022/upgrade-from-legacy.md",
-      "output": {
-        ".html": {
-          "relative_path": "src/installation/deployment/windows-server-2022/upgrade-from-legacy.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "src/installation/deployment/windows-server-2022/windows-sizing.md",
-      "output": {
-        ".html": {
-          "relative_path": "src/installation/deployment/windows-server-2022/windows-sizing.html"
         }
       },
       "version": ""
