@@ -1,0 +1,8 @@
+{
+  "INSTALL_URL_PREFIX": "https://download.app.xmpro.com/",
+  "INSTALLER_SCRIPT": "install-xmpro-application.ps1",
+  "VERSION": "4.7.0",
+  "ACR_URL": "registry.example.com/your-organization",
+  "TERRAFORM_MODULE_URL": "https://git.example.com/your-organization/infra-azureac",
+  "DOWNLOAD_URL": "https://download.xmpro.com"
+}
